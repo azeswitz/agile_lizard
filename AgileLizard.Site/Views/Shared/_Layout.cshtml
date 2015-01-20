@@ -134,15 +134,15 @@
         </nav>
 
 
+        <div class="container">
+            @RenderBody()
 
-        @RenderBody()
+        </div>
 
-
-
-        <footer id="footer">
-            <p>&copy; 2015 <a href="#">ICF International</a>, inc. All rights reserved.</p>
-        </footer>
-    </div>
+            <footer id="footer">
+                <p>&copy; 2015 <a href="#">ICF International</a>, inc. All rights reserved.</p>
+            </footer>
+        </div>
     @Scripts.Render("~/bundles/reason")
     @RenderSection("scripts", required: false)
 </body>

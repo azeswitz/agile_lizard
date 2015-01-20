@@ -217,6 +217,7 @@
     <Compile Include="Models\HighlightsViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\SearchViewModel.cs" />
+    <Compile Include="Models\WizardViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -435,6 +436,7 @@
     <Content Include="Views\Shared\_Layout_Search.cshtml" />
     <Content Include="Views\Profile\Public.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
+    <Content Include="Views\Search\Wizard.cshtml" />
     <None Include="Web.fboicfproto - Web Deploy.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
