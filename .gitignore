@@ -9,3 +9,5 @@ Web.config
 /Properties/PublishProfiles
 app.config
 Thumbs.db
+
+AgileLizard.Site/Web.config
