@@ -6,11 +6,14 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Http;
+using log4net;
+using System.Reflection;
 
 namespace AgileLizard.Site
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         protected void Application_Start()
         {
 
@@ -22,6 +25,18 @@ namespace AgileLizard.Site
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AutoMapperConfig.Init();
+        }
+
+        protected void Application_Error()
+        {
+            Exception exception = Server.GetLastError();
+            HttpException httpException = exception as HttpException;
+
+            var code = httpException == null ? 500 : httpException.GetHttpCode();
+            // Log the exception.
+            log.Error(exception);
+
+            Server.ClearError();
         }
     }
 }
