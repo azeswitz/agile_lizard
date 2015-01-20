@@ -9,7 +9,6 @@ Web.Release.config
 app.config
 Thumbs.db
 AgileLizard.Site.txt
-AgileLizard.Site/Web.config
 AgileLizard.Business/bin
 AgileLizard.Data/bin
 AgileLizard.Domain/bin
@@ -17,8 +16,3 @@ AgileLizard.Fbopen.Client/bin
 AgileLizard.Fbopen.Client.Tests/bin
 AgileLizard.Site.Tests/bin
 AgileLizard.Tests/bin
-
-
-AgileLizard.Site/Web.config
-
-AgileLizard.Site/Web.config
