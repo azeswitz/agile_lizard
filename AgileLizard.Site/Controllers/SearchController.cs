@@ -74,7 +74,8 @@ namespace AgileLizard.Site.Controllers
 
         public ActionResult Wizard()
         {
-            return View();
+            WizardViewModel model = new WizardViewModel();
+            return View(model);
         }
 
     }
