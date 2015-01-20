@@ -5,6 +5,7 @@
 Web.Debug.config
 Web.fboicfproto - Web Deploy.config
 Web.Release.config
+Web.config
 /Properties/PublishProfiles
 app.config
 Thumbs.db
