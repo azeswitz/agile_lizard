@@ -25,6 +25,13 @@ namespace AgileLizard.Site
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                "Error", // Route name
+                "{controller}/{action}/{aspxerrorpath}", // URL with parameters
+                new { controller = "Error", action = "GenericError", aspxerrorpath = UrlParameter.Optional }
+            );
+
         }
     }
 }

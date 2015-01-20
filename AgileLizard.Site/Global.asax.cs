@@ -8,6 +8,7 @@ using System.Web.Routing;
 using System.Web.Http;
 using log4net;
 using System.Reflection;
+using AgileLizard.Site.Controllers;
 
 namespace AgileLizard.Site
 {
@@ -37,6 +38,13 @@ namespace AgileLizard.Site
             log.Error(exception);
 
             Server.ClearError();
+            RouteData routeData = new RouteData();
+            routeData.Values.Add("controller", "Error");
+            routeData.Values.Add("action", "GenericError");
+
+            IController errorController = new ErrorController();
+            errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
+
         }
     }
 }
