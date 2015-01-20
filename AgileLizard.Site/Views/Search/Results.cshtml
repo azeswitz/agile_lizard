@@ -1,0 +1,55 @@
+﻿@model AgileLizard.Site.Models.SearchViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout_Search.cshtml";
+    ViewBag.Title = "Search Results";
+}
+@section head {
+    <link href="~/Content/css/slidebars.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="~/Content/css/iThing-min.css" rel="stylesheet" />
+}
+
+<header class="main-header">
+    <div class="container">
+        <h1 class="page-title">Find Business Opportunities</h1>
+
+        <ol class="breadcrumb pull-right">
+            <li><a href="#">Home</a></li>
+            <li class="active">Opportunities</li>
+        </ol>
+    </div>
+</header>
+
+<div class="container">
+@if (Model == null)
+{
+   @Html.Partial("_SimpleSearchPartial")
+}else
+{
+    @Html.Partial("_SearchResultsPartial")
+}
+
+</div>
+
+
+@section scripts {
+
+    <script src="~/Content/js/slidebars.js"></script>
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $.slidebars();
+                if (!Modernizr.inputtypes.date) {
+                    $(".date-picker").datepicker({
+                        inline: true
+                    });
+                }
+            });
+        })(jQuery);
+
+        
+    </script>
+}

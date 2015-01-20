@@ -1,0 +1,22 @@
+﻿.input-search{
+	height:38px !important;
+}
+
+.sb-slidebar {
+	background-color: #F0F0F0 !important; /* Default Slidebars background colour, overwrite this with your own css. */
+}
+
+.sb-slidebar input[type="text"] {
+  height: 30px !important;
+  background-color: #4D7DB3 !important;
+  color: #fff !important;
+}
+
+.highlight { 
+	background-color:#FFFF00; 
+
+}
+
+.ec-filters-menu {
+    margin-left:1em;
+}

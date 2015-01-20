@@ -1,0 +1,84 @@
+﻿@model AgileLizard.Site.Models.SearchViewModel
+
+
+<div class="row">
+    <div class="col-md-9">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal col-md-8 col-md-offset-2">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Params, htmlAttributes: new { @class = "control-label sr-only" })
+                    <div class="input-group">
+                        @Html.EditorFor(model => model.Params, new { htmlAttributes = new { @class = "form-control input-search" } })
+                        <span class="input-group-btn"><button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></span>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <div class="col-md-3">
+        You searched for: @Html.DisplayFor(model => model.Params)
+        <button class="btn btn-sm btn-default pull-right">Save This Search</button>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-9">
+        @if (Model != null)
+        {
+            foreach (var item in Model.FboDocs)
+            {
+                <div class="col-sm-12 mix category-smartphone" data-agency="@item.agency" data-date="20130521" data-popularity="3">
+                    <div class="ec-box">
+                        <div class="ec-box-header"><a href="#">@item.ShortTitle</a></div>
+                        <div>Agency: @item.agency</div>
+                        <div>Email: @item.FBO_EMAIL_ADDRESS</div>
+                        @foreach (var highlight in item.HighlightText)
+                        {
+                            <div>...@Html.Raw(highlight)...</div>
+                            <hr class="dashed" />
+                        }
+                        <div class="ec-box-footer">
+                            <span class="label label-primary">NAICS: @item.FBO_NAICS</span>
+                            <a href="#" class="btn btn-ar btn-info btn-sm pull-right"><i class="glyphicon glyphicon-thumbs-down"></i></a><a href="#" class="btn btn-ar btn-success btn-sm pull-right"><i class="glyphicon glyphicon-thumbs-up"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        }
+        <div class="row">
+            <div class="col-md-12 aligncenter text-center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default disabled"><i class="glyphicon glyphicon-chevron-left"></i> Previous</button>
+                    <button type="button" class="btn btn-primary"> 1 </button>
+                    <button type="button" class="btn btn-default"> 2 </button>
+                    <button type="button" class="btn btn-default"> 3 </button>
+                    <button type="button" class="btn btn-default"> 4 </button>
+                    <button type="button" class="btn btn-default"> 5 </button>
+                    <button type="button" class="btn btn-default"> 6 </button>
+                    <button type="button" class="btn btn-default"> 7 </button>
+                    <button type="button" class="btn btn-default"> 8 </button>
+                    <button type="button" class="btn btn-default"> 9 </button>
+                    <button type="button" class="btn btn-default">10</button>
+                    <button type="button" class="btn btn-default">11</button>
+                    <button type="button" class="btn btn-default">Next <i class="glyphicon glyphicon-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_RightSidebar")
+</div>
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+﻿@model AgileLizard.Site.Models.FboProfileViewModel
+
+@{
+    ViewBag.Title = "Public";
+}
+
+<header class="main-header">
+    <div class="container">
+        <h1 class="page-title">Profile</h1>
+
+        <ol class="breadcrumb pull-right">
+            <li><a href="#">Home</a></li>
+            <li class="active">Profile</li>
+        </ol>
+    </div>
+</header>
+
+<div class="row">
+    <div class="col-md-7  col-md-offset-2">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="~/Content/Portrait_placeholder.png" align="middle" alt="Avatar" />
+            </div>
+            <div class="col-md-7">
+                <h4>Personal Information</h4>
+                <div>@Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.MiddleName) @Html.DisplayFor(model => model.LastName)</div>
+                <div>@Html.DisplayFor(model => model.PersonBlurb)</div>
+            </div>
+        </div>
+        <hr class="dashed" />
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="~/Content/icf_logo.gif" align="middle" alt="ICF Logo" />
+            </div>
+            <div class="col-md-7">
+                <h4>Business Type</h4>
+                <div>@Html.DisplayFor(model => model.BusinessType)</div>
+                <div>@Html.DisplayFor(model => model.BusinessBlurb)</div>
+            </div>
+
+        </div>
+        <hr class="dashed" />
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Business Capabilities</h4>
+                <p>@Html.DisplayFor(model => model.CapabilityBlurb)</p>
+            </div>
+
+        </div>
+        <hr class="dashed" />
+        <div class="row">
+            <div class="col-md-10">
+                <h4>Other Business Interests</h4>
+                <p>@Html.DisplayFor(model => model.OtherInterestBlurb)</p>
+            </div>
+
+        </div>
+    </div>
+    @Html.Partial("_RightSidebar")
+</div>
+
