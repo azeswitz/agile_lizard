@@ -5,7 +5,6 @@
 Web.Debug.config
 Web.fboicfproto - Web Deploy.config
 Web.Release.config
-Web.config
 /Properties/PublishProfiles
 app.config
 Thumbs.db
@@ -19,3 +18,5 @@ AgileLizard.Fbopen.Client.Tests/bin
 AgileLizard.Site.Tests/bin
 AgileLizard.Tests/bin
 
+
+AgileLizard.Site/Web.config
