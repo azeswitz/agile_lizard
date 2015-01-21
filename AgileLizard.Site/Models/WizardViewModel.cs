@@ -1,6 +1,7 @@
 ﻿using AgileLizard.Business.Dto;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,53 +17,18 @@ namespace AgileLizard.Site.Models
                 Text = v.Value,
                 Value = v.Key.ToString()
             });
+
+            FilterTypeList = FilterType.Select(v => new SelectListItem
+            {
+                Text = v.Value,
+                Value = v.Key.ToString()
+            });
         }
         public IEnumerable<SelectListItem> WhatIDoList {get; set;}
         
+        
         public int WhatIDoId {get; set;}
-        /*
-        public string CampaignTypeText
-        {
-            //using enum values where possible, but breaking out 
-            //complex values for readability
-            get
-            {
-                switch (WhatIDoId)
-                {
-                    case (int)CampaignType.PR_MediaRelations:
-                        return "PR/Media Relations";
-                    case (int)CampaignType.Email:
-                        return CampaignType.Email.ToString();
-                    case (int)CampaignType.Search:
-                        return CampaignType.Search.ToString();
-                    case (int)CampaignType.CommunityEvents_HealthFairs:
-                        return "Community Events / HealthFairs";
-                    case (int)CampaignType.Retargeting:
-                        return CampaignType.Retargeting.ToString();
-                    case (int)CampaignType.Banner:
-                        return CampaignType.Banner.ToString();
-                    case (int)CampaignType.SpanishRadio:
-                        return "Spanish Radio";
-                    case (int)CampaignType.EnglishRadio:
-                        return "English Radio";
-                    case (int)CampaignType.Organic:
-                        return CampaignType.Organic.ToString();
-                    case (int)CampaignType.Other:
-                        return CampaignType.Other.ToString();
-                    case (int)CampaignType.Billboard:
-                        return CampaignType.Billboard.ToString();
-                    case (int)CampaignType.DirectMail:
-                        return "Direct Mail";
-                    case (int)CampaignType.HealthKiosk:
-                        return "Health Kiosk";
-                    case (int)CampaignType.Television:
-                        return CampaignType.Television.ToString();
-                    case (int)CampaignType.SocialMedia:
-                        return "Social Media";
-                    default:
-                        return CampaignType.Other.ToString();
-                }
-            }*/
+        
          public Dictionary<int, string> WhatIDoType = new Dictionary<int, string>
         {
             {1, "Research open opportunities for my company"},
@@ -70,7 +36,26 @@ namespace AgileLizard.Site.Models
             {3, "Network with other professionals for teaming opportunites"}
         };
 
+         public IEnumerable<SelectListItem> FilterTypeList { get; set; }
+         public Dictionary<int, string> FilterType = new Dictionary<int, string>
+        {
+            {1, "Request Type"},
+            {2, "Set Aside Type"},
+            {3, "..."}
+        };
+
+         public IEnumerable<SelectListItem> OperatorList { get; set; }
+         public Dictionary<int, string> OperatorType = new Dictionary<int, string>
+        {
+            {1, "Equals"},
+            {2, "Does Not Equal"},
+            {3, "..."}
+        };
+
+        [Display(Name="What I Do...")]
         public string WhatIDo { get; set; }
+
+        [Display(Name = "Keywords")]
         public string Params { get; set; }
 
         public IList<FactRequestTypeDto> FactRequestTypeList { get; set; }

@@ -7,7 +7,7 @@
 
 <header class="main-header">
     <div class="container">
-        <h1 class="page-title">Find Business Opportunities</h1>
+        <h1 class="page-title">Get Started...</h1>
 
         <ol class="breadcrumb pull-right">
             <li><a href="#">Home</a></li>
@@ -15,35 +15,76 @@
         </ol>
     </div>
 </header>
+
 <div class="container">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
         <div class="form-horizontal">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.WhatIDo, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.WhatIDoId, Model.WhatIDoList, "--  Select --", htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.WhatIDo, "", new { @class = "text-danger" })
+            <div class="col-md-12">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-12">
+                            @Html.LabelFor(model => model.WhatIDo, htmlAttributes: new { @class = "control-label" })
+                            @Html.LabelFor(model => model.Params, htmlAttributes: new { @class = "sr-only control-label" })
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-5">
+                            @Html.DropDownListFor(model => model.WhatIDoId, Model.WhatIDoList, "Select...", htmlAttributes: new { @class = "form-control input-search" })
+                            @Html.ValidationMessageFor(model => model.WhatIDo, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-1 text-center">
+                            Or...
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                @Html.EditorFor(model => model.Params, new { htmlAttributes = new { @class = "form-control input-search", @placeholder = "Search..." } })
+                                @Html.ValidationMessageFor(model => model.Params, "", new { @class = "text-danger" })
+                                <span class="input-group-btn"><button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Params, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Params, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Params, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
+            <div class="col-md-12">
+            <hr class="solid" />
+            <script language="JavaScript">
+               /* var vals = '{
+                    "filters": [
+                      {
+                          "filtertype": "Request Type",
+                          "values": [
+                              "Value 1",
+                              "Value 2",
+                              "..."
+                          ],
+                      },
+                      {
+                          "filtertype": "Set Aside Type",
+                          "values": [
+                              "Value2 1",
+                              "Value2 2",
+                              "..."
+                          ],
+                      }';
+                      */
+            </script>
+            <select id="FilterType">
+                <option value="0">Select...</option>
+                <option value="1">Request Type</option>
+                <option value="2">Set Aside</option>
+                <option value="3">...</option>
+            </select>
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
                 </div>
             </div>
-        </div>
+            </div> <!--end col-md-12-->
+        </div><!-- end form-horizontal -->
     }
 
 
