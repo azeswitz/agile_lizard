@@ -49,4 +49,8 @@
         -o-transition: all .25s ease;
         transition: all .25s ease;
     }
+
+    .theme-options-close{
+        left: -286px;
+    }
 }

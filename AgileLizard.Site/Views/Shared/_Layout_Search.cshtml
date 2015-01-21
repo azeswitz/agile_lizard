@@ -36,90 +36,93 @@
 </head>
 <!-- Preloader -->
 <div id="preloader">
-    <div id="status">&nbsp;</div>
+    <div id="status">Fetching Results...</div>
 </div>
 <body>
     <div id="theme-options">
 
-        <div>
-            <div class="ec-filters-menu">
-                <h3 class="section-title no-margin-top">Filters</h3>
+            <div>
+                <div class="ec-filters-menu">
+                    <h3 class="section-title no-margin-top">Filters</h3>
 
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-plus-link">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                Procurement Type
-                            </a>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <ul>
-                                    @if (Model != null)
-                                    {
-                                        foreach (var item in Model.FactRequestTypeList)
-                                        {
-                                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
-                                        }
-                                    }
-
-                                </ul>
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading panel-plus-link">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    Procurement Type
+                                </a>
                             </div>
-                        </div>
-                    </div><!-- End panel #1 -->
-                    <div class="panel panel-primary">
-                        <div class="panel-heading panel-plus-link">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
-                                Set-Aside Type
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <ul>
-                                    @if (Model != null)
-                                    {
-                                        foreach (var item in Model.FactSetAsideList)
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul>
+                                        @if (Model != null)
                                         {
-                                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
+                                            foreach (var item in Model.FactRequestTypeList)
+                                            {
+                                                <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
+                                            }
                                         }
-                                    }
-                                </ul>
+
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </div> <!-- End panel #2 -->
+                        </div><!-- End panel #1 -->
+                        <div class="panel panel-primary">
+                            <div class="panel-heading panel-plus-link">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                    Set-Aside Type
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        @if (Model != null)
+                                        {
+                                            foreach (var item in Model.FactSetAsideList)
+                                            {
+                                                <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
+                                            }
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> <!-- End panel #2 -->
 
-                </div>
+                    </div>
 
-                <div>
-                    <h4>Date Range</h4>
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="has-feedback"></i>@Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
+                    <div>
+                        <h4>Date Range</h4>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <div class="has-feedback"></i>@Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
 
-                            @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
-                            @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-                        </div>
+                                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
+                                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                            </div>
 
-                        <div class="col-xs-5">
-                            <div>@Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
-                            @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            <div class="col-xs-5">
+                                <div>@Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
+                                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <br />
-        <div class="text-center">
-            <button class="btn btn-primary sb-close"><i class="glyphicon glyphicon-refresh"></i> Update</button>
-        </div>
 
-        <div id="icon-options" class="hidden-xs">
-            <i class="fa fa-filter fa-2x fa-flip-horizontal"></i>
-        </div>
-        <div id="icon-options-xs" class="hidden-md hidden-lg">
-            <i class="fa fa-filter fa-2x fa-flip-horizontal"></i>
-        </div>
+            </div>
+            <br />
+
+            <div class="text-center">
+                <button type="submit" id="closefilter" class="btn btn-primary sb-close"><i class="glyphicon glyphicon-refresh"></i> Update</button>
+            </div>
+
+            <div id="icon-options" class="hidden-xs">
+                <i class="fa fa-filter fa-2x fa-flip-horizontal"></i>
+            </div>
+            <div id="icon-options-xs" class="hidden-md hidden-lg">
+                <i class="fa fa-filter fa-2x fa-flip-horizontal"></i>
+            </div>
+       
     </div>
     <div id="sb-site">
         <header id="header-full-top" class="hidden-xs header-full-dark">
@@ -229,5 +232,7 @@
     </div>
     @Scripts.Render("~/bundles/reason")
     @RenderSection("scripts", required: false)
+
+
 </body>
 </html>
