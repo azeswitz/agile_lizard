@@ -24,10 +24,11 @@
         <div class="form-horizontal">
             <div class="col-md-12">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <h4>What I Do...</h4>
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-12">
-                            @Html.LabelFor(model => model.WhatIDo, htmlAttributes: new { @class = "control-label" })
+                            @Html.LabelFor(model => model.WhatIDo, htmlAttributes: new { @class = "sr-only control-label" })
                             @Html.LabelFor(model => model.Params, htmlAttributes: new { @class = "sr-only control-label" })
                         </div>
                     </div>
@@ -48,43 +49,70 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-            <hr class="solid" />
-            <script language="JavaScript">
-               /* var vals = '{
-                    "filters": [
-                      {
-                          "filtertype": "Request Type",
-                          "values": [
-                              "Value 1",
-                              "Value 2",
-                              "..."
-                          ],
-                      },
-                      {
-                          "filtertype": "Set Aside Type",
-                          "values": [
-                              "Value2 1",
-                              "Value2 2",
-                              "..."
-                          ],
-                      }';
-                      */
-            </script>
-            <select id="FilterType">
-                <option value="0">Select...</option>
-                <option value="1">Request Type</option>
-                <option value="2">Set Aside</option>
-                <option value="3">...</option>
-            </select>
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
-            </div>
             </div> <!--end col-md-12-->
+            <div class="col-md-12">
+                <hr class="solid" />
+            </div> <!--end col-md-12-->
+            <div class="col-md-12">
+
+                <script language="JavaScript">
+                    /* var vals = '{
+                         "filters": [
+                           {
+                               "filtertype": "Request Type",
+                               "values": [
+                                   "Value 1",
+                                   "Value 2",
+                                   "..."
+                               ],
+                           },
+                           {
+                               "filtertype": "Set Aside Type",
+                               "values": [
+                                   "Value2 1",
+                                   "Value2 2",
+                                   "..."
+                               ],
+                           }';
+                           */
+                </script>
+                <h4>Build Your Interest Profile</h4>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="FilterType" class="control-label sr-only">Filter Type</label>
+                            <select class="form-control" id="FilterType">
+                                <option value="0">Select Filter Type...</option>
+                                <option value="1">Request Type</option>
+                                <option value="2">Set Aside</option>
+                                <option value="3">...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="FilterType" class="control-label sr-only">Filter Value</label>
+                            <select class="form-control" id="FilterType">
+                                <option value="0">Select Filter Value...</option>
+                                <option value="1">Request Type</option>
+                                <option value="2">Set Aside</option>
+                                <option value="3">...</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-royal"><i class="glyphicon glyphicon-plus"></i></button>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-royal"><i class="glyphicon glyphicon-search"></i> Search Now</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div> <!--end col-md-12-->
+            <div class="col-md-12">
+                <hr class="css-section" />
+            </div> <!--end col-md-12-->
+            
         </div><!-- end form-horizontal -->
+        
     }
 
 
