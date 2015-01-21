@@ -26,6 +26,13 @@
     <link href="~/Content/css/buttons.css" rel="stylesheet" media="screen">
     <link href="~/Content/Site.css" rel="stylesheet" media="screen">
     <link rel="icon" type="image/png" href="~/favicon.png">
+
+    <link href="~/Content/css/slidebars.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/css/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="~/Content/css/iThing-min.css" rel="stylesheet" />
+
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="/Content/js/html5shiv.min.js"></script>
@@ -89,24 +96,11 @@
                         </div> <!-- End panel #2 -->
 
                     </div>
-
-                    <div>
-                        <h4>Date Range</h4>
-                        <div class="row">
-                            <div class="col-xs-5">
-                                <div class="has-feedback"></i>@Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
-
-                                @Html.EditorFor(model => model.StartDate, new { htmlAttributes = new { @class = "form-control date-picker" } })
-                                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
-                            </div>
-
-                            <div class="col-xs-5">
-                                <div>@Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "sr-only control-label" })</div>
-                                @Html.EditorFor(model => model.EndDate, new { htmlAttributes = new { @class = "form-control" } })
-                                @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
-                            </div>
-                        </div>
+                    <h4>Date Range</h4>
+                    <div class="row">
+                        <div id="slider" class="aligncenter"></div>
                     </div>
+
                 </div>
 
             </div>
@@ -231,7 +225,16 @@
         </footer>
     </div>
     @Scripts.Render("~/bundles/reason")
+    <script src="~/Content/js/slidebars.js"></script>
+    <script src="~/Content/js/jquery-ui.min.js"></script>
+    <script src="~/Content/js/jQDateRangeSlider-min.js"></script>
     @RenderSection("scripts", required: false)
+    <script>
+        $("#slider").dateRangeSlider({
+            bounds: { min: new Date(2014, 0, 1), max: new Date(2015, 0, 31, 12, 59, 59) },
+            defaultValues: { min: new Date(2014, 1, 10), max: new Date(2014, 11, 31) },
+        });
+    </script>
 
 
 </body>

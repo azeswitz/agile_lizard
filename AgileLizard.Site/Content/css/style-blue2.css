@@ -4012,6 +4012,12 @@ input.input-lg[type="text"] {
   -o-transition: all .25s ease;
   transition: all .25s ease;
 }
+#slider {
+    width:320px;
+    height: 20px;
+}
+
+
 #theme-options:hover {
   left: 0;
   background-color:#ffffff;

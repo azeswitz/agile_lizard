@@ -5,10 +5,7 @@
     ViewBag.Title = "Search Results";
 }
 @section head {
-    <link href="~/Content/css/slidebars.css" rel="stylesheet" />
-    <link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
-    <link href="~/Content/css/jquery-ui.structure.min.css" rel="stylesheet" />
-    <link href="~/Content/css/iThing-min.css" rel="stylesheet" />
+
 }
 
 <header class="main-header">
@@ -36,20 +33,6 @@
 
 @section scripts {
 
-    <script src="~/Content/js/slidebars.js"></script>
-    <script src="~/Content/js/jquery-ui.min.js"></script>
-    <script>
-        (function ($) {
-            $(document).ready(function () {
-                $.slidebars();
-                if (!Modernizr.inputtypes.date) {
-                    $(".date-picker").datepicker({
-                        inline: true
-                    });
-                }
-            });
-        })(jQuery);
 
-        
-    </script>
+
 }
