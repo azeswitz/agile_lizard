@@ -26,12 +26,14 @@
 }
 
     #icon-options-xs i {
-
-        margin-top:0px;
+        margin-top: 150px;
         padding: 6px;
-
     }
 
+    #icon-options-xs:hover i {
+        margin-top: 0px;
+        padding: 6px;
+    }
 
 @media (max-width: 767px) {
     #theme-options {
@@ -40,7 +42,7 @@
         overflow: scroll;
         top: 0px;
         width: 320px;
-        left: 0px;
+        left: -286px;
         z-index: 1000;
         height: 1000px;
         -webkit-transition: all .25s ease;
@@ -50,7 +52,7 @@
         transition: all .25s ease;
     }
 
-    .theme-options-close{
+    .theme-options-close {
         left: -286px;
     }
 }
