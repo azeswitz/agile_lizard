@@ -27,7 +27,7 @@
 
     #icon-options-xs i {
 
-        margin-top:150px;
+        margin-top:0px;
         padding: 6px;
 
     }
@@ -40,7 +40,7 @@
         overflow: scroll;
         top: 0px;
         width: 320px;
-        left: -286px;
+        left: 0px;
         z-index: 1000;
         height: 1000px;
         -webkit-transition: all .25s ease;
