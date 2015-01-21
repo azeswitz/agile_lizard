@@ -4029,6 +4029,7 @@ input.input-lg[type="text"] {
   background-image: -o-linear-gradient(bottom, #ececec, #f4f4f4);
   background-image: linear-gradient(to top, #ececec, #f4f4f4);
 }
+
 #body-options {
   display: table-cell;
   width: 260px;

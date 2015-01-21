@@ -1,22 +1,52 @@
-﻿.input-search{
-	height:38px !important;
+﻿.input-search {
+    height: 38px !important;
 }
 
 .sb-slidebar {
-	background-color: #F0F0F0 !important; /* Default Slidebars background colour, overwrite this with your own css. */
+    background-color: #F0F0F0 !important; /* Default Slidebars background colour, overwrite this with your own css. */
 }
 
-.sb-slidebar input[type="text"] {
-  height: 30px !important;
-  background-color: #4D7DB3 !important;
-  color: #fff !important;
-}
+    .sb-slidebar input[type="text"] {
+        height: 30px !important;
+        background-color: #4D7DB3 !important;
+        color: #fff !important;
+    }
 
-.highlight { 
-	background-color:#FFFF00; 
-
+.highlight {
+    background-color: #FFFF00;
 }
 
 .ec-filters-menu {
-    margin-left:1em;
+    margin-left: 1em;
+}
+
+
+#icon-options-xs {
+    display: table-cell;
+}
+
+    #icon-options-xs i {
+
+        margin-top:150px;
+        padding: 6px;
+
+    }
+
+
+@media (max-width: 767px) {
+    #theme-options {
+        display: table;
+        position: fixed;
+        overflow: scroll;
+        top: 0px;
+        width: 320px;
+        left: -286px;
+        z-index: 1000;
+        height: 1000px;
+        -webkit-transition: all .25s ease;
+        -moz-transition: all .25s ease;
+        -ms-transition: all .25s ease;
+        -o-transition: all .25s ease;
+        transition: all .25s ease;
+    }
 }
