@@ -45,26 +45,50 @@
             <div class="ec-filters-menu">
                 <h3 class="section-title no-margin-top">Filters</h3>
 
-                <h4>Procurement Type</h4>
-                <ul>
-                    @if (Model != null)
-                    {
-                        foreach (var item in Model.FactRequestTypeList)
-                        {
-                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x=>item.IsSelected) @Html.DisplayFor(x=>item.FactName)</a></li>
-                        }
-                    }
-                  
-                </ul>
-                <h4>Set-Aside Type</h4>
-                <ul>
-                    @if (Model != null)
-                    {
-                        foreach (var item in Model.FactSetAsideList)
-                        {
-                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
-                        }
-                    }                </ul>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-plus-link">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Procurement Type
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.FactRequestTypeList)
+                                        {
+                                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
+                                        }
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!-- End panel #1 -->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading panel-plus-link">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                                Set-Aside Type
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <ul>
+                                    @if (Model != null)
+                                    {
+                                        foreach (var item in Model.FactSetAsideList)
+                                        {
+                                            <li><a href="javascript:void(0);" class="filter" data-filter="@item.FboName">@Html.CheckBoxFor(x => item.IsSelected) @Html.DisplayFor(x => item.FactName)</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div> <!-- End panel #2 -->
+                    
+                </div>
 
                 <div>
                     <h4>Date Range</h4>
