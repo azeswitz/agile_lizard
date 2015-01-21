@@ -4002,7 +4002,8 @@ input.input-lg[type="text"] {
   position: fixed;
   overflow:scroll;
   top: 0px;
-  left: -414px;
+  width: 420px;
+  left: -380px;
   z-index: 1000;
   height: 1000px;
   -webkit-transition: all .25s ease;
