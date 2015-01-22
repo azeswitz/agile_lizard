@@ -11,6 +11,7 @@ namespace AgileLizard.Site.Models
     {
         public SearchViewModel()
         {
+            this.Params = String.Empty;
             this.StartingRecord = 0;
             this.StartDate = DateTime.Now.AddYears(-1).ToShortDateString();
             this.EndDate = DateTime.Now.ToShortDateString();

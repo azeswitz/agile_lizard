@@ -40,6 +40,7 @@ namespace AgileLizard.Site
                             .ReverseMap();
                         cfg.CreateMap<FactRequestType, FactRequestTypeDto>();
                         cfg.CreateMap<FactSetAside, FactSetAsideDto>();
+                        cfg.CreateMap<WizardViewModel, SearchViewModel>();
                     });
             }
             catch (AutoMapperConfigurationException ace)

@@ -37,25 +37,26 @@ namespace AgileLizard.Site.Models
         };
 
          public IEnumerable<SelectListItem> FilterTypeList { get; set; }
-         public Dictionary<int, string> FilterType = new Dictionary<int, string>
+         public Dictionary<string, string> FilterType = new Dictionary<string, string>
         {
-            {1, "Request Type"},
-            {2, "Set Aside Type"},
-            {3, "..."}
+            {"FactRequestType", "Request Type"},
+            {"FactSetAside", "Set Aside Type"},
+            {"-", "..."}
         };
-
+        
          public IEnumerable<SelectListItem> OperatorList { get; set; }
-         public Dictionary<int, string> OperatorType = new Dictionary<int, string>
+         public Dictionary<string, string> OperatorType = new Dictionary<string, string>
         {
-            {1, "Equals"},
-            {2, "Does Not Equal"},
-            {3, "..."}
+            {"=", "Equals"},
+            {"<>", "Does Not Equal"},
+            {"-", "..."}
         };
 
         [Display(Name="What I Do...")]
         public string WhatIDo { get; set; }
 
         [Display(Name = "Keywords")]
+        [Required(ErrorMessage="Prototype only: at least one keyword is required")]
         public string Params { get; set; }
 
         public IList<FactRequestTypeDto> FactRequestTypeList { get; set; }

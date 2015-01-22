@@ -10,7 +10,7 @@ namespace AgileLizard.Site.Controllers
     {
         public ActionResult Index()
         {
-            return Redirect("Search"); ;
+            return Redirect("Search/Wizard"); ;
         }
 
         public ActionResult About()

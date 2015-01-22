@@ -439,6 +439,7 @@
     <Content Include="Views\Profile\Public.cshtml" />
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Search\Wizard.cshtml" />
+    <Content Include="Views\Shared\_Navigation.cshtml" />
     <None Include="Web.fboicfproto - Web Deploy.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

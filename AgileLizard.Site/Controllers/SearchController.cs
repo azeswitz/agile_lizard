@@ -23,7 +23,7 @@ namespace AgileLizard.Site.Controllers
         private IDocumentManager _docMgr;
         private IFactManager _factMgr;
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
-
+        private static string WIZARD_KEY = "wizard";
         public SearchController(IProcurementManager pMgr, IDocumentManager docMgr, IFactManager factMgr)
         {
             this._pMgr = pMgr;
@@ -40,11 +40,18 @@ namespace AgileLizard.Site.Controllers
         public ActionResult Results()
         {
             SearchViewModel model = new SearchViewModel();
+            if (TempData["wizard"] != null)
+            {
+                model = Mapper.Map<WizardViewModel, SearchViewModel>((WizardViewModel)TempData["wizard"]);
+                TempData["wizard"] = null;
+            }
+
             model.FactRequestTypeList = _factMgr.GetFactTypeList();
             model.FactSetAsideList = _factMgr.GetSetAsideList();
-            if (!String.IsNullOrEmpty(Request.Params["q"]))
+            if (!String.IsNullOrEmpty(Request.Params["q"]) || !String.IsNullOrEmpty(model.Params) )
             {
-                model.Params = HttpUtility.HtmlEncode(Request.Params["q"]);
+                if (String.IsNullOrEmpty(model.Params))
+                    model.Params = HttpUtility.HtmlEncode(Request.Params["q"]);
                 try
                 {
                     model.StartingRecord = Int32.Parse(HttpUtility.HtmlEncode(Request.Params["s"]));
@@ -58,7 +65,7 @@ namespace AgileLizard.Site.Controllers
                 model.FboDocs = Mapper.Map<IList<Doc>, IList<FbOpenDocumentViewModel>>(results);
                 return View(model);
             }
-            return View();
+            return View(model);
 
         }
 
@@ -76,6 +83,21 @@ namespace AgileLizard.Site.Controllers
         {
             WizardViewModel model = new WizardViewModel();
             return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Wizard(WizardViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["wizard"] = model;
+                return RedirectToAction("Results");
+            }
+            else
+            {
+                return View(model);
+            }
+
         }
 
     }
