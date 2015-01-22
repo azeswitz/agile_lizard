@@ -24,6 +24,7 @@ namespace AgileLizard.Site.Controllers
         private IFactManager _factMgr;
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private static string WIZARD_KEY = "wizard";
+        private static string SEARCH_KEY = "search";
         public SearchController(IProcurementManager pMgr, IDocumentManager docMgr, IFactManager factMgr)
         {
             this._pMgr = pMgr;
@@ -40,10 +41,15 @@ namespace AgileLizard.Site.Controllers
         public ActionResult Results()
         {
             SearchViewModel model = new SearchViewModel();
-            if (TempData["wizard"] != null)
+            if (TempData[WIZARD_KEY] != null)
             {
-                model = Mapper.Map<WizardViewModel, SearchViewModel>((WizardViewModel)TempData["wizard"]);
-                TempData["wizard"] = null;
+                model = Mapper.Map<WizardViewModel, SearchViewModel>((WizardViewModel)TempData[WIZARD_KEY]);
+                TempData[WIZARD_KEY] = null;
+            }
+            if (TempData[SEARCH_KEY] != null)
+            {
+                model = (SearchViewModel)TempData[SEARCH_KEY];
+                TempData[SEARCH_KEY] = null;
             }
 
             model.FactRequestTypeList = _factMgr.GetFactTypeList();
@@ -61,6 +67,7 @@ namespace AgileLizard.Site.Controllers
                     model.StartingRecord = 1;
                     //stuff exception - only really care if it is an int..
                 }
+            
                 IList<Doc> results = _docMgr.GetRecords(model.Params, model.StartingRecord);
                 model.FboDocs = Mapper.Map<IList<Doc>, IList<FbOpenDocumentViewModel>>(results);
                 return View(model);
@@ -90,7 +97,7 @@ namespace AgileLizard.Site.Controllers
         {
             if (ModelState.IsValid)
             {
-                TempData["wizard"] = model;
+                TempData[WIZARD_KEY] = model;
                 return RedirectToAction("Results");
             }
             else
@@ -98,6 +105,13 @@ namespace AgileLizard.Site.Controllers
                 return View(model);
             }
 
+        }
+
+        [HttpPost]
+        public ActionResult Update(SearchViewModel model)
+        {
+            TempData[SEARCH_KEY] = model;
+            return RedirectToAction("Results"); 
         }
 
     }

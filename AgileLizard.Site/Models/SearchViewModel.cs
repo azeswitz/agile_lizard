@@ -15,10 +15,11 @@ namespace AgileLizard.Site.Models
             this.StartingRecord = 0;
             this.StartDate = DateTime.Now.AddYears(-1).ToShortDateString();
             this.EndDate = DateTime.Now.ToShortDateString();
-            IList<FbOpenDocumentViewModel> FboDocs = new List<FbOpenDocumentViewModel>();
+            this.FboDocs = new List<FbOpenDocumentViewModel>();
         }
         //define mocked search parameters
-        [Display(Name = "Search Criteria")]
+        [Display(Name = "Keywords")]
+        [Required(ErrorMessage = "Prototype only: at least one keyword is required")]
         public string Params { get; set; }
         public int StartingRecord { get; set; }
 
