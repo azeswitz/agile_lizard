@@ -32,6 +32,11 @@ namespace AgileLizard.Site.Controllers
             this._factMgr = factMgr;
         }
 
+        public ActionResult Test()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return RedirectToAction("Results");

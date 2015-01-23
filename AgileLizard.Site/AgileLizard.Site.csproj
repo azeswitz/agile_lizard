@@ -301,6 +301,7 @@
     <Content Include="Content\img\prev.png" />
     <Content Include="Content\img\slide_back.jpg" />
     <Content Include="Content\js\app.js" />
+    <Content Include="Content\js\app_arz.js" />
     <Content Include="Content\js\bootstrap-slider.js" />
     <Content Include="Content\js\bootstrap-switch.min.js" />
     <Content Include="Content\js\bootstrap.min.js" />
@@ -440,6 +441,8 @@
     <Content Include="Views\Profile\Edit.cshtml" />
     <Content Include="Views\Search\Wizard.cshtml" />
     <Content Include="Views\Shared\_Navigation.cshtml" />
+    <Content Include="Views\Shared\_Layout_Debug.cshtml" />
+    <Content Include="Views\Search\Test.cshtml" />
     <None Include="Web.fboicfproto - Web Deploy.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
