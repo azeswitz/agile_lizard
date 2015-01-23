@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using AgileLizard.Business.Dto;
+using System.Web;
 
 
 namespace AgileLizard.Site.Models
@@ -21,6 +22,13 @@ namespace AgileLizard.Site.Models
         [Display(Name = "Keywords")]
         [Required(ErrorMessage = "Prototype only: at least one keyword is required")]
         public string Params { get; set; }
+        public string SafeParams
+        {
+            get
+            {
+                return HttpUtility.UrlEncode(this.Params);
+            }
+        }
         public int StartingRecord { get; set; }
 
         public IList<FbOpenDocumentViewModel> FboDocs { get; set; }

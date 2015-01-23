@@ -62,20 +62,20 @@ namespace AgileLizard.Site.Controllers
             if (!String.IsNullOrEmpty(Request.Params["q"]) || !String.IsNullOrEmpty(model.Params) )
             {
                 if (String.IsNullOrEmpty(model.Params))
-                    model.Params = HttpUtility.HtmlEncode(Request.Params["q"]);
+                    model.Params = Request.Params["q"];
                 try
                 {
-                    model.StartingRecord = Int32.Parse(HttpUtility.HtmlEncode(Request.Params["s"]));
+                    model.StartingRecord = Int32.Parse(Request.Params["s"]);
                 }
                 catch (Exception ex)
                 {
                     model.StartingRecord = 1;
                     //stuff exception - only really care if it is an int..
                 }
-                model.Params = HttpUtility.UrlEncode(model.Params);
-                IList<Doc> results = _docMgr.GetRecords(model.Params, model.StartingRecord);
+
+                IList<Doc> results = _docMgr.GetRecords(model.SafeParams, model.StartingRecord);
                 model.FboDocs = Mapper.Map<IList<Doc>, IList<FbOpenDocumentViewModel>>(results);
-                model.Params = HttpUtility.UrlDecode(model.Params);
+
                 return View(model);
             }
             return View(model);
