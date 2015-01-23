@@ -67,9 +67,10 @@ namespace AgileLizard.Site.Controllers
                     model.StartingRecord = 1;
                     //stuff exception - only really care if it is an int..
                 }
-            
+                model.Params = HttpUtility.UrlEncode(model.Params);
                 IList<Doc> results = _docMgr.GetRecords(model.Params, model.StartingRecord);
                 model.FboDocs = Mapper.Map<IList<Doc>, IList<FbOpenDocumentViewModel>>(results);
+                model.Params = HttpUtility.UrlDecode(model.Params);
                 return View(model);
             }
             return View(model);

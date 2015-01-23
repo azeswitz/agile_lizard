@@ -4000,7 +4000,6 @@ input.input-lg[type="text"] {
 #theme-options {
   display: table;
   position: fixed;
-  overflow:scroll;
   top: 0px;
   width: 420px;
   left: -380px;
@@ -4012,6 +4011,7 @@ input.input-lg[type="text"] {
   -o-transition: all .25s ease;
   transition: all .25s ease;
 }
+
 #slider {
     width:320px;
     height: 20px;
