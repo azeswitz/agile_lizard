@@ -55,7 +55,7 @@
         position: fixed;
         top: 0px;
         width: 280px;
-        left: -250px;
+        left: -240px;
         z-index: 1000;
         height: 1000px;
         -webkit-transition: all .25s ease;
@@ -65,9 +65,6 @@
         transition: all .25s ease;
     }
 
-    .theme-options-close {
-        left: -286px;
-    }
 
     #slider {
         width: 215px;
